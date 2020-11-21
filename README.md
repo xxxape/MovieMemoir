@@ -16,7 +16,7 @@
 >>主页显示当前用户评分前5的电影列表</br>
 >>使用[Fragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_main.xml)切换不同页面</br>
 >>[HomeFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/HomeFragment.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/main/MyMovieMemoir/app/src/main/res/layout/fragment_home.xml)
+>>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_home.xml)
 4. 搜索</br>
 >>输入电影名，通过TMDb API搜索电影并返回电影列表</br>
 >>[MovieSearchFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/MovieSearchFragment.java)</br>
