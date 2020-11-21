@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">MyMovieMemoir</string>
+
+    <string name="sign_up_now"><u>Sign up now!</u></string>
+    <string name="add_new_cinema"><u>Add a new one!</u></string>
+    <string name="required"><font color="RED">* </font></string>
+    <string name="view_more"><u><font color="#00896C">View More</font></u></string>
+
+    <string-array name="state_array">
+        <item>NSW</item>
+        <item>QLD</item>
+        <item>SA</item>
+        <item>TAS</item>
+        <item>VIC</item>
+        <item>WA</item>
+        <item>ACT</item>
+        <item>NT</item>
+    </string-array>
+
+    <string-array name="year_array">
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+    </string-array>
+
+    <string name="Open">open</string>
+    <string name="Close">close</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
