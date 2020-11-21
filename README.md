@@ -8,7 +8,7 @@
 #### 功能
 1. 登录</br>
 >>[SigninActivity](https://github.com/xxxape/MovieMemoir/blob/main/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/MainActivity.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/main/MyMovieMemoir/app/src/main/res/layout/activity_main.xml)
+>>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_main.xml)
 2. 注册</br>
 >>[SignupActivity](https://github.com/xxxape/MovieMemoir/blob/main/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/user/SignUpActivity.java)</br>
 >>[界面](https://github.com/xxxape/MovieMemoir/blob/main/MyMovieMemoir/app/src/main/res/layout/activity_sign_up.xml)
