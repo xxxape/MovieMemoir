@@ -2,13 +2,15 @@
 ## Server
 使用NetBeans搭建[服务端](https://github.com/xxxape/MovieMemoir/tree/master/MovieMemoir)</br>
 包括数据的[存储](https://github.com/xxxape/MovieMemoir/tree/master/MovieMemoir/src/java/restws)和[增删改查](https://github.com/xxxape/MovieMemoir/tree/master/MovieMemoir/src/java/service)</br>
+<img src="https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/databse.png" width="400"/>
 
 ## Client
 使用Android Studio搭建[客户端](https://github.com/xxxape/MovieMemoir/tree/master/MyMovieMemoir)</br>
 #### 功能
 1. 登录</br>
->>[SigninActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/MainActivity.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_main.xml)
+>[SigninActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/MainActivity.java)</br>
+>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_main.xml)</br>
+>应用启动界面，用户通过界面输入用户名和密码，Activity获取界面输入，将用户名和加密后的密码一同发送到服务端，服务端查询用户名和密码是否存在，如果存在返回凭证id（登陆成功），否则返回空。客户端如果接收到凭证id，会再次将凭证id发送到服务端去获取用户所有信息（姓名等），并将当前用户信息保存在静态类中，以便其它组件获取。
 2. 注册</br>
 >>[SignupActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/user/SignUpActivity.java)</br>
 >>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_sign_up.xml)
