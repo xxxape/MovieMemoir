@@ -12,8 +12,11 @@
 >[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_main.xml)</br>
 >应用启动界面，用户通过界面输入用户名和密码，Activity获取界面输入，将用户名和加密后的密码一同发送到服务端，服务端查询用户名和密码是否存在，如果存在返回凭证id（登陆成功），否则返回空。客户端如果接收到凭证id，会再次将凭证id发送到服务端去获取用户所有信息（姓名等），并将当前用户信息保存在静态类中，以便其它组件获取。
 2. 注册</br>
->>[SignupActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/user/SignUpActivity.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_sign_up.xml)
+>[SignupActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/user/SignUpActivity.java)</br>
+>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_sign_up.xml)</br>
+>用户输入用户名（邮箱），密码等一系列个人信息，Activity获取界面输入，并将其打包成Person类，用gson对象将其转换为Json字符串，再用RequestBody类将该Json字符串创建为主体，在创建请求时将该主体传入到post()方法中，再将该请求发送到服务器（发送两次，先添加到Credential表，再添加到Person表），如果服务端返回204代码，表示插入数据库成功，关闭当前Activity，返回到登录页面。
+>![](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/signin.png) 
+>![](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/signup.png)
 3. 主页</br>
 >>主页显示当前用户评分前5的电影列表</br>
 >>使用[Fragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_main.xml)切换不同页面</br>
