@@ -14,14 +14,23 @@
 2. 注册</br>
 >[SignupActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/user/SignUpActivity.java)</br>
 >[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_sign_up.xml)</br>
->用户输入用户名（邮箱），密码等一系列个人信息，Activity获取界面输入，并将其打包成Person类，用gson对象将其转换为Json字符串，再用RequestBody类将该Json字符串创建为主体，在创建请求时将该主体传入到post()方法中，再将该请求发送到服务器（发送两次，先添加到Credential表，再添加到Person表），如果服务端返回204代码，表示插入数据库成功，关闭当前Activity，返回到登录页面。
->![](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/signin.png) 
->![](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/signup.png)
+>用户输入用户名（邮箱），密码等一系列个人信息，Activity获取界面输入，并将其打包成Person类，用gson对象将其转换为Json字符串，再用RequestBody类将该Json字符串创建为主体，在创建请求时将该主体传入到post()方法中，再将该请求发送到服务器（发送两次，先添加到Credential表，再添加到Person表），如果服务端返回204代码，表示插入数据库成功，关闭当前Activity，返回到登录页面。</br>
+>![登录](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/signin.png) 
+>![注册](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/signup.png)
 3. 主页</br>
->>主页显示当前用户评分前5的电影列表</br>
->>使用[Fragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_main.xml)切换不同页面</br>
->>[HomeFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/HomeFragment.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_home.xml)
+>主页显示当前用户评分前5的电影列表。通过用户id到服务端查询该用户评分top5的电影，返回一系列电影信息，通过ListView+SimpleAdapter展示该数据。</br>
+>使用[Fragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_main.xml)切换不同页面</br>
+>[HomeFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/HomeFragment.java)</br>
+>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_home.xml)</br>
+>Fragment切换方法：
+```Java
+FragmentManager fragmentManager = getSupportFragmentManager();
+FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+fragmentTransaction.replace(R.id.content_frame, nextFragment);
+fragmentTransaction.commit();
+```
+>![主页](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/homepage.png)
+>![导航栏](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/Navigation.png)
 4. 搜索</br>
 >>输入电影名，通过TMDb API搜索电影并返回电影列表</br>
 >>[MovieSearchFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/MovieSearchFragment.java)</br>
