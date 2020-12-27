@@ -22,7 +22,7 @@
 >使用[Fragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_main.xml)切换不同页面</br>
 >[HomeFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/HomeFragment.java)</br>
 >[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_home.xml)</br>
->Fragment切换方法：
+>通过点击侧边导航栏切换Fragment，Fragment切换方法：
 ```Java
 FragmentManager fragmentManager = getSupportFragmentManager();
 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -32,13 +32,17 @@ fragmentTransaction.commit();
 >![主页](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/homepage.png)
 >![导航栏](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/Navigation.png)
 4. 搜索</br>
->>输入电影名，通过TMDb API搜索电影并返回电影列表</br>
->>[MovieSearchFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/MovieSearchFragment.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_movie_search.xml)
+>输入电影名，通过TMDb API搜索电影并返回电影列表，使用RecyclerView和Adapter展示数据，点击某一条电影行，可以跳转到电影详情界面</br>
+>[MovieSearchFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/MovieSearchFragment.java)</br>
+>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_movie_search.xml)</br>
 5. 电影详情</br>
->>显示选中电影的详情，包括电影名、海报、上映时间、地区以及演职员</br>
->>[MovieViewActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/movie/MovieView.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_movie_view.xml)
+>显示选中电影的详情，包括电影名、海报、上映时间、地区以及演职员，通过电影id向TMDb API发送请求获取以上具体信息，并一一展示在界面上（演职员表通过ListView+SimpleAdapter展示）。</br>
+>>问题：
+>>
+>[MovieViewActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/movie/MovieView.java)</br>
+>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_movie_view.xml)</br>
+>![搜索电影](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/searchPage.png)
+>![电影详情](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/movieView.png)
 6. 收藏列表
 >>[WatchlistFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/WatchlistFragment.java)</br>
 >>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_watchlist.xml)
