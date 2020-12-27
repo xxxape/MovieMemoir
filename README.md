@@ -37,27 +37,37 @@ fragmentTransaction.commit();
 >[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_movie_search.xml)</br>
 5. 电影详情</br>
 >显示选中电影的详情，包括电影名、海报、上映时间、地区以及演职员，通过电影id向TMDb API发送请求获取以上具体信息，并一一展示在界面上（演职员表通过ListView+SimpleAdapter展示）。</br>
->>问题：
->>
+>>问题：点击添加到心愿单按钮时，需要先在SQLite数据库中查找该电影是否存在，如果存在，提示已添加，并使按钮变灰；如果不存在，则添加。使用原本代码时由于不熟悉Runnable的使用，导致不知道在哪里获取分线程任务结束后查询到的数据。</br>
+>>当时解决办法：将数据库操作中的Runnable实现方法全部删除，使用AsyncTask替代。</br>
+>>其他解决办法：使用Handler+Message的消息机制，当数据库操作的异步任务结束时，通过Handler发送消息，在Handler类中重写handleMessage方法，在主线程中处理接收到的消息并进行ui操作。</br>
 >[MovieViewActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/movie/MovieView.java)</br>
 >[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_movie_view.xml)</br>
 >![搜索电影](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/searchPage.png)
 >![电影详情](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/movieView.png)
 6. 收藏列表
->>[WatchlistFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/WatchlistFragment.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_watchlist.xml)
+>获取SQLite数据库中心愿单数据，并通过RecyclerView+Adapter展示数据</br>
+>[WatchlistFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/WatchlistFragment.java)</br>
+>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_watchlist.xml)
 7. 添加影评
->>[MemoirAddActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/memoir/MemoirAddActivity.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_memoir_add.xml)
+>输入影评相关信息（观影时间、地点、评论、打分），如果post请求返回204，表示添加成功</br>
+>[MemoirAddActivity](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/memoir/MemoirAddActivity.java)</br>
+>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/activity_memoir_add.xml)</br>
+>![心愿单](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/watchlist.png)
+>![添加影评](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/addToMemoir.png)
 8. 影评记录
->>[MovieMemoirFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/MovieMemoirFragment.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_movie_memoir.xml)
+>RecyclerView+Adapter展现影评记录，有筛选和排序功能</br>
+>>排序：重写Comparator<>中的compare方法，并传入Collections.sort方法中</br>
+>>筛选：按条件筛选出新的List对象并传入适配器中</br>
+>[MovieMemoirFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/MovieMemoirFragment.java)</br>
+>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_movie_memoir.xml)
 9. 数据统计
->>[ReportFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/ReportFragment.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_report.xml)
+>[ReportFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/ReportFragment.java)</br>
+>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_report.xml)
 10. 地图界面
->>[MapFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/MapFragment.java)</br>
->>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_map.xml)
+>[MapFragment](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/java/com/zzx/mymoviememoir/fragments/MapFragment.java)</br>
+>[界面](https://github.com/xxxape/MovieMemoir/blob/master/MyMovieMemoir/app/src/main/res/layout/fragment_map.xml)</br>
+>![影评](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/memoirPage.png)
+>![地图](https://raw.githubusercontent.com/xxxape/MovieMemoir/master/img-folder/map.png)
 
 ## API
 [The Movie Database (TMDb)](https://developers.themoviedb.org/3/getting-started/introduction)</br>
